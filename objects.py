@@ -30,7 +30,7 @@ class Knight:
 
 @dataclass
 class cavalryKnight(Knight):
-    charge_bonus:float = 25.0
+    charge_bonus:float = 0.0
 
     # Ovverdies knight deal_damage adds the charge bonus to the attack
     def deal_damage(self, target, amount):
@@ -43,6 +43,9 @@ class cavalryKnight(Knight):
 
 @dataclass
 class darkKnight(Knight):
-    dark_magic:float = 17.5
+    dark_magic:float = 25.0
     # Ovverides Knight deal_damage normal attack, then dark magic that ignores armro
     def deal_damage(self, target, amount):
+        target.health -= self.dark_magic
+        super().deal_damage(target, amount)
+        print(f"{self.name} casts dark magic {self.dark_magic} onto {target.name}. health is now {target.health}")

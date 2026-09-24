@@ -5,14 +5,14 @@ ITEC-352-001
 9/14/2026
 """
 # Import Knight class from the objects module
-from objects import Knight
+from objects import Knight, cavalryKnight, darkKnight
 
 
 
 def main():
     # create two Knight objects with starting health and armor_rating
-    lancelot = Knight("Lancelot", 100, 5)
-    mordred = Knight("Mordred", 90, 3)
+    lancelot = darkKnight("Lancelot", 100, 10)
+    mordred = cavalryKnight("Mordred", 90, 10)
 
     # Have each knight attack the other to demonstrate object interaction
     lancelot.deal_damage(mordred, 15)
